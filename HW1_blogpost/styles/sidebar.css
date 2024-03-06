@@ -1,0 +1,29 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sidebar__list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar__list li{
+  padding: 0.1rem 0;
+}
+
+.sidebar h2{
+  font-style: italic;
+  line-height: 100%;
+}
+
+.sidebar__about{
+  background-color: whitesmoke;
+  padding: 1rem;
+}
+
+.sidebar__about p{
+  margin: 0.5rem 0;
+}
+

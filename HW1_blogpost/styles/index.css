@@ -1,0 +1,61 @@
+@import "card.css";
+@import "header.css";
+@import "footer.css";
+@import "article.css";
+@import "sidebar.css";
+
+h1,
+h2,
+h3{
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+body {
+  padding:0 15%;
+}
+
+main {
+  gap:1.75rem;
+}
+
+#main__index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#main__blog {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 4rem;
+}
+
+a {
+  color: steelblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  body {
+    padding: 0 10%;
+  }
+  #main__index {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  #main__blog {
+    grid-template-columns: 1fr;
+  }
+}

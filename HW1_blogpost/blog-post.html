@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>HW 1 Blog</title>
+  </head>
+  <body>
+    <header class="header">
+      <button
+        class="header__button header__button-subscribe"
+        onclick="alert('Subscribed!')"
+      >
+        Subscribe
+      </button>
+      <h1 class="header__title">Blog Title</h1>
+      <button
+        class="header__button"
+        onclick="alert('Want to search something?')"
+      >
+        <img
+          class="header__img"
+          src="./images/magnify-glass.svg"
+          alt="search button"
+        />
+      </button>
+    </header>
+
+    <main id="main__blog">
+      <!-- Aside components -->
+      <aside class="sidebar">
+        <section class="sidebar__about">
+          <h2>About</h2>
+          <p>
+            HTML is a vital skill for anyone looking to create or understand web
+            content. Its simplicity and versatility make it the starting point
+            for anyone interested in web development or design.
+          </p>
+        </section>
+        <nav>
+          <h2>Archives</h2>
+          <ul class="sidebar__list">
+            <li><a href="/index.html" target="_self">March 2024</a></li>
+            <li><a href="/index.html" target="_self">February 2024</a></li>
+            <li><a href="/index.html" target="_self">January 2024</a></li>
+            <li><a href="/index.html" target="_self">December 2023</a></li>
+            <li><a href="/index.html" target="_self">November 2023</a></li>
+            <li><a href="/index.html" target="_self">October 2023</a></li>
+          </ul>
+        </nav>
+        <section>
+          <h2>Elsewhere</h2>
+          <ul class="sidebar__list">
+            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/" target="_blank">Facebook</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- Article body -->
+      <article class="article">
+        <h1>Sample blog post</h1>
+        <time class="article__time">January 1, 2024 by <a>Mark</a></time>
+        <img
+          class="article__image"
+          src="./images/html5-image.jpg"
+          alt="html5 image"
+        />
+        <summary class="article__summary">
+          HTML, or HyperText Markup Language, is the cornerstone of web
+          development. It's a markup language that instructs web browsers on how
+          to structure and display content on web pages.
+        </summary>
+        <p>
+          HTML does this by using a variety of tags and attributes, acting as
+          the building blocks of websites, enabling the creation of visually
+          engaging pages that can include text, images, links, and much more.
+        </p>
+        <blockquote class="article__quote">
+          At its core, HTML is relatively straightforward,
+          <strong>designed to be easy to learn and use</strong>. It works by
+          marking up text to define different elements like headings,
+          paragraphs, lists, links, and other components crucial to web design.
+        </blockquote>
+        <p>
+          Each element in HTML is enclosed in tags, which are made up of angle
+          brackets surrounding an element type (for example, for paragraphs).
+          These elements tell the browser how to display the content or
+          interpret the page's structure.
+        </p>
+        <h2>Heading</h2>
+        In summary, HTML is a vital skill for anyone looking to create or
+        understand web content. Its simplicity and versatility make it the
+        starting point for anyone interested in web development or design.
+        <h3>Sub-heading</h3>
+        As you become more comfortable with HTML, you can start to explore CSS
+        (Cascading Style Sheets) and JavaScript, which allow you to further
+        style and add interactivity to your web pages, respectively.
+        <pre
+          class="article__code"
+        ><code>//example code<br>let salary = 0;<br>while (sleep){<br>    salary ++;<br>}<br>balance += salary;</code>
+        </pre>
+        <h3>Sub-heading</h3>
+        <p>
+          HTML5 introduced a wide array of improvements and new features over
+          its predecessors, making web development more intuitive, efficient,
+          and capable of handling multimedia and graphical content without the
+          need for external plugins. Here are some key features of HTML5.
+        </p>
+        <ul>
+          <li>
+            Semantic Elements: HTML5 introduced more descriptive HTML tags
+          </li>
+          <li>
+            Geolocation API: This allows web applications to access the
+            geographical location of the user, enabling location-based services
+            or functionalities.
+          </li>
+          <li>
+            Drag-and-Drop API: This feature simplifies the implementation of
+            drag-and-drop functionality, enhancing user interaction and
+            experience.
+          </li>
+        </ul>
+        <p>
+          HTML5 significantly advanced web technology, making it more versatile
+          for developers and enhancing the user experience with rich media,
+          graphics, and interactivity.
+        </p>
+        <ol>
+          <li>
+            Form Controls: New form elements and attributes, such as date, time,
+            email, url, search, and range, improve form handling and validation,
+            making web forms more interactive and user-friendly.
+          </li>
+          <li>
+            WebSockets: This technology enables full-duplex communication
+            between a web browser and a server over a single, long-lived
+            connection, allowing for more interactive web applications.
+          </li>
+          <li>
+            Offline Applications: With the application cache feature, web
+            applications can run offline by caching essential elements,
+            improving availability and performance.
+          </li>
+        </ol>
+      </article>
+
+      <!-- Article navigation button -->
+      <div>
+        <button class="article__button">Older Post</button>
+        <button class="article__button article__button-disabled" disabled>
+          Newer Post
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Blog template built for
+        <span
+          ><a href="https://getbootstrap.com/" target="_blank"
+            >Bootstrap</a
+          ></span
+        >
+      </p>
+      <a
+        href="https://www.figma.com/blog/design-systems-101-what-is-a-design-system/"
+        target="_blank"
+        >See Design System</a
+      >
+    </footer>
+  </body>
+</html>
