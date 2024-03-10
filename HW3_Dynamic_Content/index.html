@@ -7,8 +7,27 @@
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <button>Test</button>
-    <h1>2</h1>
+    <header class="header">
+      <button
+        class="header__button header__button-subscribe"
+        onclick="alert('Subscribed!')"
+      >
+        Subscribe
+      </button>
+      <h1 class="header__title">Blog Title</h1>
+      <button
+        class="header__button"
+        onclick="alert('Want to search something?')"
+      >
+        <img
+          class="header__img"
+          src="./images/magnify-glass.svg"
+          alt="search button"
+        />
+      </button>
+    </header>
+    <main></main>
+    <div class="pagenav"></div>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

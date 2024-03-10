@@ -1,0 +1,34 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0;
+}
+
+.header__title {
+  text-decoration: underline;
+}
+
+.header__button {
+  width:4rem;
+  background:none;
+  border: none;
+  cursor: pointer;
+}
+
+.header__button-subscribe {
+  width: 4rem;
+  color:gray;
+  text-decoration: underline;
+}
+
+.header__img {
+  width: 1rem;
+  opacity: 0.6;
+  transition-duration: 100ms;
+}
+
+.header__img:hover {
+  opacity: 1.0;
+}

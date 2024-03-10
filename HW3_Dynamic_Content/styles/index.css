@@ -1,4 +1,41 @@
+@import "header.css";
+@import "card.css";
+@import "pagenav.css";
+
+h1,
+h2,
+h3{
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
 body {
+  padding:0 15%;
+}
+
+main {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+@media only screen and (max-width: 768px){
+  body {
+    padding: 0 10%;
+  }
+  main {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
 }
