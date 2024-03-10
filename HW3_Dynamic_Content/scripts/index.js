@@ -1,6 +1,7 @@
 const ITEMS_PER_PAGE = 10;
 let currIdx = 0;
 let numPages = 1;
+const htmlBody = document.querySelector("body");
 
 // First fetch data from the URL
 fetch("https://jsonplaceholder.typicode.com/posts")
@@ -14,11 +15,14 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .catch((error) => console.log(error))
   .then((data) => {
     numPages = Math.ceil(data.length / ITEMS_PER_PAGE);
-    console.log(data);
+
+    // DEV Part
+    displayDataSlice(htmlBody, 0, data);
+    // END
   });
 
 // Get the data slice based on current page number
-function getDataSlices(pageNum, data) {
+function getDataSlice(pageNum, data) {
   const startIdx = pageNum * ITEMS_PER_PAGE;
   const endIndex = Math.min(startIdx + ITEMS_PER_PAGE, data.length);
   const dataSlice = data.slice(startIdx, endIndex);
@@ -27,7 +31,18 @@ function getDataSlices(pageNum, data) {
 
 // Convert a single data element to an HTML element
 function createDataElement(item) {
-  const { userId, id, body, title } = item;
   const elem = document.createElement("div");
-  // elem.classList.add();
+  const heading = document.createElement("h1");
+  const body = document.createElement("p");
+  heading.textContent = item.title;
+  body.textContent = item.body;
+  elem.append(heading, body);
+  return elem;
+}
+
+// Generate HTML data layout based on the current page number
+function displayDataSlice(parentElement, pageNum, data) {
+  const dataSlice = getDataSlice(pageNum, data);
+  const dataElements = dataSlice.map((item) => createDataElement(item));
+  parentElement.append(...dataElements);
 }
