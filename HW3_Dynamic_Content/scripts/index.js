@@ -18,6 +18,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 
     // DEV Part
     displayDataSlice(htmlBody, 0, data);
+    createPaginationBar(numPages);
     // END
   });
 
@@ -45,4 +46,41 @@ function displayDataSlice(parentElement, pageNum, data) {
   const dataSlice = getDataSlice(pageNum, data);
   const dataElements = dataSlice.map((item) => createDataElement(item));
   parentElement.append(...dataElements);
+}
+
+function createPaginationBar(numPages) {
+  const pageBar = document.createElement("div");
+
+  // Create page navigations buttons
+  const prevButton = document.createElement("button");
+  const nextButton = document.createElement("button");
+  const indexButtons = new Array(numPages).fill(0).map((_, i) => {
+    const button = document.createElement("button");
+    button.textContent = i + 1;
+    return button;
+  });
+  prevButton.textContent = "Prev";
+  nextButton.textContent = "Next";
+
+  // Create event listeners for each button
+  const pageButtons = [prevButton, ...indexButtons, nextButton];
+  pageButtons.forEach((button) => addButtonClickEvent(button));
+
+  // Append pagination bar to the HTML
+  pageBar.append(...pageButtons);
+  htmlBody.appendChild(pageBar);
+}
+
+function addButtonClickEvent(button) {
+  const buttonText = button.textContent;
+  button.addEventListener("click", () => {
+    if (buttonText === "Prev") {
+      currIdx = Math.max(0, currIdx - 1);
+    } else if (buttonText === "Next") {
+      currIdx = Math.min(numPages, currIdx + 1);
+    } else {
+      currIdx = Number(buttonText);
+    }
+    console.log(currIdx);
+  });
 }
