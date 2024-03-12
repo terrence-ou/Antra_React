@@ -1,9 +1,9 @@
 const numArr = [0, 1, 2, 3, 4, 5];
 const strArr = ["alpha", "beta", "gamma", "theta"];
 
-/* ============================================= */
-/* myMap function simulates the Array.map method */
-/* ============================================= */
+/* ======================================= */
+/* myMap function simulates the map method */
+/* ======================================= */
 
 Array.prototype.myMap = function (callback) {
   const newArr = new Array(this.length).fill(undefined);
@@ -22,9 +22,9 @@ console.log("Built-in `map` results:");
 console.log(numArr.map((val, index) => val + index));
 console.log(strArr.map((str) => str[0].toUpperCase() + str.slice(1)));
 
-/* =================================================== */
-/* myFilter function simulates the Array.filter method */
-/* =================================================== */
+/* ============================================= */
+/* myFilter function simulates the filter method */
+/* ============================================= */
 
 Array.prototype.myFilter = function (callback) {
   const newArr = [];
@@ -43,9 +43,9 @@ console.log("Built-in `filter` results:");
 console.log(numArr.filter((val, index) => val * index > 15));
 console.log(strArr.filter((str) => str.length >= 5));
 
-/* =================================================== */
-/* myReduce function simulates the Array.reduce method */
-/* =================================================== */
+/* ============================================= */
+/* myReduce function simulates the reduce method */
+/* ============================================= */
 
 Array.prototype.myReduce = function (callback, initVal) {
   let result = initVal;
@@ -73,4 +73,66 @@ console.log(
   )
 );
 
-/* myReduce function simulates the Array.reduce method */
+/* =========================================== */
+/* myEvery function simulates the every method */
+/* =========================================== */
+
+Array.prototype.myEvery = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    if (!callback(this[i], i)) return false;
+  }
+  return true;
+};
+
+console.log("\n========Testing `myEvery` method=========");
+console.log("`myEvery` results:");
+console.log(numArr.myEvery((num, index) => num + index > 0));
+console.log(strArr.myEvery((str) => str.length > 3));
+
+console.log("Built-in `every` results:");
+console.log(numArr.every((num, index) => num + index > 0));
+console.log(strArr.every((str) => str.length > 3));
+
+/* ========================================= */
+/* myFind function simulates the find method */
+/* ========================================= */
+
+Array.prototype.myFind = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i)) return this[i];
+  }
+  return undefined;
+};
+
+console.log("\n========Testing `myFind` method=========");
+console.log("`myFind` results:");
+console.log(numArr.myFind((num, index) => num * index > 10));
+console.log(strArr.myFind((str) => str.length > 20));
+console.log("Built-in `find` results:");
+console.log(numArr.find((num, index) => num * index > 10));
+console.log(strArr.find((str) => str.length > 20));
+
+/* ================================================= */
+/* myIncludes function simulates the includes method */
+/* ================================================= */
+
+Array.prototype.myIncludes = function (target) {
+  const sameValueZero = (a, b) => {
+    if (typeof a === "number" && typeof b === "number") {
+      return a === b || (a !== a && b !== b); // x and y are equal , or x and y are both Nan
+    }
+    return a === b;
+  };
+  for (let i = 0; i < this.length; i++) {
+    if (sameValueZero(this[i], target)) return true;
+  }
+  return false;
+};
+
+console.log("\n========Testing `myIncludes` method=========");
+console.log("`myIncludes` results:");
+console.log(numArr.myIncludes(4));
+console.log(strArr.myIncludes("lambda"));
+console.log("Built-in `includes` results:");
+console.log(numArr.includes(4));
+console.log(strArr.includes("lambda"));
