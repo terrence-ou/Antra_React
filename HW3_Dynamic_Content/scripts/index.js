@@ -10,7 +10,6 @@ const pageNavDiv = document.querySelector(".pagenav");
 
 /* ========== DOM Manipulation ========== */
 
-// First fetch data from the URL
 fetch("https://jsonplaceholder.typicode.com/posts")
   .then((response) => {
     if (response.ok) return response.json();
@@ -21,8 +20,9 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   })
   .catch((error) => console.log(error))
   .then((data) => {
-    numPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+    // store the data in the global variable and compute total number of pages needed
     fullData = data;
+    numPages = Math.ceil(data.length / ITEMS_PER_PAGE);
 
     // Handling contents
     displayDataSlice(htmlMain, 0, data);
@@ -59,12 +59,13 @@ function createDataElement(item) {
 
 // Generate HTML data layout based on the current page number
 function displayDataSlice(parentElement, pageNum, data) {
-  htmlMain.innerHTML = "";
+  htmlMain.innerHTML = ""; // first clear the current content, to avoid contents stacking up
   const dataSlice = getDataSlice(pageNum, data);
   const dataElements = dataSlice.map((item) => createDataElement(item));
   parentElement.append(...dataElements);
 }
 
+// Create a page navigation bar as a independent component
 function createPaginationBar(numPages) {
   // Create page navigations buttons
   const prevButton = document.createElement("button");
@@ -107,16 +108,17 @@ function addButtonClickEvent(button) {
 function setButtonState() {
   const buttons = document.querySelectorAll(".pagenav__btn");
   buttons.forEach((button) => {
-    button.classList.remove("pagenav__btn-current");
-    button.disabled = false;
+    button.classList.remove("pagenav__btn-current"); // clear page states for all of the buttons
+    button.disabled = false; // clear the disabled property for all of the buttons
     if (Number(button.textContent) - 1 === currIdx) {
       button.classList.add("pagenav__btn-current");
       button.disabled = true;
     }
-
+    // in the first page, the "Prev" button should be invalid
     if (currIdx === 0 && button.textContent === "Prev") {
       button.disabled = true;
     }
+    // in the last page, the "Next" button should be invalid
     if (currIdx === numPages - 1 && button.textContent === "Next") {
       button.disabled = true;
     }
